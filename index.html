@@ -4,10 +4,54 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>flashcards</title>
+    <style>
+	* { box-sizing: border-box; }
+	:root { color-scheme: dark light; font-family: sans-serif; }
+
+	body { margin: 0px; height: 100vh; display: grid; grid-template-rows: 5vh 1fr 5vh; place-items: center; }
+	main { display: grid; width: clamp(60vw, 400px, 90vw); height: 100%; place-items: center; }
+	#term{grid-area: term;}	#action-next{grid-area: action-next;} #action-reveal{ grid-area: action-reveal;}
+
+	main {
+		grid-template-areas:
+		"header header"
+		"term term"
+		"action-reveal action-next";
+	}
+	main[data-state="landing"] {
+		grid-template-areas:
+		"header"
+		"term"
+		"action-start";
+	}
+
+	main:not([data-state="landing"]) .only-landing {
+		display: none;
+	}
+
+	main[data-state="landing"] .not-landing {
+		display: none;
+	}
+
+	dialog::backdrop {
+		backdrop-filter: blur(20px);
+	}
+
+    </style>
+    <script type="module" src="/src/main.ts"></script>
   </head>
   <body>
-	  <main>
+	  <header><h1>flashcards</h1></header>
+	  <main data-state="landing">
+		  <header style="grid-area: header">WHAT AM I?</header>
+		  <big id="term">???</big>
+		  <button id="action-start" class="only-landing">start</button>
+		  <button id="action-reveal" class="not-landing">reveal</button>
+		  <button id="action-next" class="not-landing">next</button>
+
+		  <dialog id="explanation">
+			  <header>I AM...</header>
+		  </dialog>
 	  </main>
-    <script type="module" src="/src/main.ts"></script>
   </body>
 </html>
