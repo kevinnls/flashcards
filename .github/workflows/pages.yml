@@ -1,0 +1,51 @@
+name: generate and deploy static content using vite build
+on:
+  - push
+  - workflow_dispatch
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 'get repo'
+        uses: actions/checkout@v3
+
+      - name: 'setup Node'
+        uses: actions/setup-node@v3
+        with:
+          node-version: current
+
+      - name: 'get yarn cache dir'
+        id: cache-dir
+        run: printf '::set-output name=path::%s' $(yarn cache dir)
+
+      - name: 'get cached node_modules'
+        uses: actions/cache@v3
+        with:
+          path: ${{ steps.cache-dir.outputs.path }}
+          key: yarn-cache-${{ hashFiles('yarn.lock') }}
+          restore-keys: yarn-cache-
+
+      - name: 'install dependencies'
+        run: yarn install --frozen-lockfile
+
+      - name: 'build'
+        run: yarn run build
+
+      - name: 'upload artificat'
+        uses: actions/upload-pages-artifact@v1
+
+  deploy:
+    needs: generate
+    runs-on: ubuntu-latest
+    if: github.ref_name == 'main'
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - name: 'deploy to GitHub Pages'
+        id: deploy
+        uses: actions/deploy-pages@v1
+
