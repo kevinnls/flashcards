@@ -1,5 +1,9 @@
 
-const worker = new Worker('./src/worker.js')
+const worker = new Worker('./src/worker.js', {type:"module"})
+worker.onerror = console.error
+worker.onmessage = handleWorkerMessage
+worker.postMessage({type: 'ping'})
+worker.postMessage({type:'load', deckUrl: '/deck.min.json'})
 
 const startBtn = document.getElementById('action-start')
 const stopBtn = document.getElementById('action-stop')
@@ -16,6 +20,7 @@ const defnBoxes = document.querySelectorAll('.explanation')
 startBtn.addEventListener('click', () => {
 	console.log('hello')
 	document.querySelector('main').dataset.state = "playing";
+	worker.postMessage({type: 'next'})
 })
 stopBtn.addEventListener('click', () => {
 	console.log('hello')
@@ -35,15 +40,21 @@ function updateCard(nextCard){
 	defnBoxes.forEach(node => node.innerText = nextCard.defn)
 }
 
-worker.onmessage = (msg) => {
-	console.log(msg.data.type)
+function handleWorkerMessage (msg) {
 	switch (msg.data.type) {
+		case 'pong':
+			console.log('received pong from worker!')
+			break;
 		case 'next':
 			updateCard(msg.data.content)
 			break;
+		case 'loaded':
+			startBtn.disabled = false;
+			break;
+
+
 		default:
-			throw 'I HAVE NO IDEA'
+			throw `unknown message from worker: ${msg.data.type}`
 	}
 }
 
-worker.onerror = console.error
