@@ -9,7 +9,7 @@
 	:root { color-scheme: dark light; font-family: sans-serif; }
 
 	body { margin: 0px; height: 100vh; display: grid; grid-template-rows: 5vh 1fr 5vh; place-items: center; }
-	main { display: grid; width: clamp(60vw, 400px, 90vw); height: 100%; place-items: center; }
+	main { display: grid; width: clamp(60vw, 400px, 100vw); height: 100%; place-items: center; }
 	#term{grid-area: term;}	#action-next{grid-area: action-next;} #action-reveal{ grid-area: action-reveal;} #action-prev{ grid-area: action-prev;}
 	main {
 		grid-template-areas:
@@ -18,10 +18,17 @@
 		"action-start";
 	}
 	main[data-state="playing"] {
+		grid-template-columns: 1fr 3fr 1fr;
 		grid-template-areas:
-		"header header header"
-		"term term term"
+		"action-prev header action-next"
+		"action-prev term action-next"
 		"action-prev action-reveal action-next";
+	}
+	#action-next,#action-prev{
+		opacity: .3;
+		font-size: 5em;
+		height: 100%;
+		width: 100%;
 	}
 
 	main[data-state="playing"] .only-not-playing {
@@ -33,7 +40,7 @@
 		font-size: 7.5em;
 	}
 	.explanation {
-		font-size: 5em;
+		font-size: clamp(2vw,42px,5em);
 	}
 	main .only-playing {
 		display: none;
@@ -77,9 +84,9 @@
 		  </header>
 		  <big id="term"><span class="term">???</span></big>
 		  <button disabled="true" id="action-start" class="only-not-playing">start</button>
-		  <button id="action-prev" class="only-playing">previous</button>
+		  <button id="action-prev" class="only-playing" title="previous">&lt;</button>
 		  <button id="action-reveal" class="only-playing">reveal</button>
-		  <button id="action-next" class="only-playing">next</button>
+		  <button id="action-next" class="only-playing" title="next">&gt;</button>
 
 		  <dialog id="explanation">
 			  <header><span class="term">???</span> is&hellip;</header>
