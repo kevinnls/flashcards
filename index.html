@@ -10,26 +10,36 @@
 
 	body { margin: 0px; height: 100vh; display: grid; grid-template-rows: 5vh 1fr 5vh; place-items: center; }
 	main { display: grid; width: clamp(60vw, 400px, 90vw); height: 100%; place-items: center; }
-	#term{grid-area: term;}	#action-next{grid-area: action-next;} #action-reveal{ grid-area: action-reveal;}
-
+	#term{grid-area: term;}	#action-next{grid-area: action-next;} #action-reveal{ grid-area: action-reveal;} #action-prev{ grid-area: action-prev;}
 	main {
-		grid-template-areas:
-		"header header"
-		"term term"
-		"action-reveal action-next";
-	}
-	main[data-state="landing"] {
 		grid-template-areas:
 		"header"
 		"term"
 		"action-start";
 	}
+	main[data-state="playing"] {
+		grid-template-areas:
+		"header header header"
+		"term term term"
+		"action-prev action-reveal action-next";
+	}
 
-	main:not([data-state="landing"]) .only-landing {
+	main[data-state="playing"] .only-not-playing {
 		display: none;
 	}
 
-	main[data-state="landing"] .not-landing {
+	main .only-playing {
+		display: none;
+	}
+	main[data-state="playing"] .only-playing {
+		display: initial;
+	}
+
+	body:has(main[data-state="playing"]) {
+		grid-template-rows: 1fr;
+	}
+	body:has(main[data-state="playing"]) > header,
+	body:has(main[data-state="playing"]) > footer {
 		display: none;
 	}
 
@@ -43,15 +53,20 @@
   <body>
 	  <header><h1>flashcards</h1></header>
 	  <main data-state="landing">
-		  <header style="grid-area: header">WHAT AM I?</header>
-		  <big id="term">???</big>
-		  <button id="action-start" class="only-landing">start</button>
-		  <button id="action-reveal" class="not-landing">reveal</button>
-		  <button id="action-next" class="not-landing">next</button>
+		  <header style="grid-area: header">
+			  <span>WHAT IS&hellip; </span>
+			  <button id="action-stop" title="stop" class="only-playing">X</button>
+		  </header>
+		  <big id="term"><span class="term">???</span></big>
+		  <button id="action-start" class="only-not-playing">start</button>
+		  <button id="action-prev" class="only-playing">previous</button>
+		  <button id="action-reveal" class="only-playing">reveal</button>
+		  <button id="action-next" class="only-playing">next</button>
 
 		  <dialog id="explanation">
-			  <header>I AM...</header>
+			  <header><span class="term">???</span> is&hellip;</header>
 		  </dialog>
 	  </main>
+	  <footer>&copy; Kevin Samuel 2022</footer>
   </body>
 </html>
