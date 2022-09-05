@@ -28,6 +28,7 @@
 		display: none;
 	}
 
+
 	main .only-playing {
 		display: none;
 	}
@@ -43,6 +44,17 @@
 		display: none;
 	}
 
+	dialog[open]{
+		display: grid;
+	}
+	dialog {
+		border-width: 1px;
+		border-radius: 13px;
+		place-items: center;
+		grid-template-rows: 1fr 4fr;
+		width: clamp(60vw, 400px, 90vw);
+		height: 50%;
+	}
 	dialog::backdrop {
 		backdrop-filter: blur(20px);
 	}

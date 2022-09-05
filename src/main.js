@@ -18,18 +18,18 @@ const termBoxes = document.querySelectorAll('.term')
 const defnBoxes = document.querySelectorAll('.explanation')
 
 startBtn.addEventListener('click', () => {
-	console.log('hello')
 	document.querySelector('main').dataset.state = "playing";
 	worker.postMessage({type: 'next'})
 })
 stopBtn.addEventListener('click', () => {
-	console.log('hello')
 	document.querySelector('main').dataset.state = "stopped";
 })
 
+explainDiag.addEventListener('click', ({target: target}) => {
+	if (target.nodeName === 'DIALOG') target.close()
+})
 revealBtn.addEventListener('click', () => {
-	explainDiag.showModal();
-	explainDiag.addEventListener('click', ({target: target}) => {if(target.nodeName === 'DIALOG')target.close()})
+	explainDiag.showModal()
 })
 
 nextBtn.addEventListener('click', () => worker.postMessage({type: 'next'}));
