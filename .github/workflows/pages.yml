@@ -33,6 +33,8 @@ jobs:
 
       - name: 'upload artificat'
         uses: actions/upload-pages-artifact@v1
+        with:
+          path: 'dist'
 
   deploy:
     needs: generate
