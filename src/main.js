@@ -1,4 +1,5 @@
-console.log('hello, world');
+
+const worker = new Worker('./src/worker.js')
 
 const startBtn = document.getElementById('action-start')
 const stopBtn = document.getElementById('action-stop')
@@ -25,3 +26,24 @@ revealBtn.addEventListener('click', () => {
 	explainDiag.showModal();
 	explainDiag.addEventListener('click', ({target: target}) => {if(target.nodeName === 'DIALOG')target.close()})
 })
+
+nextBtn.addEventListener('click', () => worker.postMessage({type: 'next'}));
+
+function updateCard(nextCard){
+
+	termBoxes.forEach(node => node.innerText = nextCard.term)
+	defnBoxes.forEach(node => node.innerText = nextCard.defn)
+}
+
+worker.onmessage = (msg) => {
+	console.log(msg.data.type)
+	switch (msg.data.type) {
+		case 'next':
+			updateCard(msg.data.content)
+			break;
+		default:
+			throw 'I HAVE NO IDEA'
+	}
+}
+
+worker.onerror = console.error
