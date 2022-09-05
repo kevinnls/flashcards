@@ -1,5 +1,3 @@
-export {}
-
 console.log('hello, world');
 
 const startBtn = document.getElementById('action-start')
