@@ -28,15 +28,12 @@ onmessage = async (msg) => {
  
     case "next":
       currentIndex += 1
-      if (remainingCardList.length === 0){
-	      postMessage({type: 'end', dir: 'fwd'})
-	      break;
-      }
       if (completedCardList.length === 1 || currentIndex === 2)
 	      postMessage({type: 'start'})
 
       if(currentIndex <= completedCardList.length){
 	      postMessage({type: 'update', content: completedCardList.at(currentIndex - 1)})
+	      if (currentIndex === completedCardList.length) postMessage({type: 'end', dir: 'fwd'})
 	      break;
       }
 
@@ -44,6 +41,9 @@ onmessage = async (msg) => {
       postMessage(res);
       completedCardList.push(res.content);
       remainingCardList.splice(index, 1);
+      if (remainingCardList.length === 0){
+	      postMessage({type: 'end', dir: 'fwd'})
+      }
       break;
     case "load":
       if (!msg.data.deckUrl) throw "deckUrl not provided for loading";
