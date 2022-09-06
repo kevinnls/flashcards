@@ -32,12 +32,15 @@
 	    "term"
 	    "action-start";
 	}
+	.term {
+	  font-size: 3em;
+	}
 	#term {
 	  grid-area: term;
 	  font-size: 7.5em;
 	}
 	.term,.explanation {
-	  font-family: 'Noto Sans Mono' monospace;
+	  font-family: 'Noto Sans Mono', monospace;
 	}
 	.only-playing {
 	  display: none;
@@ -57,7 +60,7 @@
         <span>WHAT IS&hellip; </span>
         <button id="action-stop" title="stop" class="only-playing">X</button>
       </header>
-      <big id="term"><span class="term">???</span></big>
+      <big id="term" class="term">???</big>
       <button disabled="true" id="action-show" class="wait-load only-not-playing">
         show all
       </button>
