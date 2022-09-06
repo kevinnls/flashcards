@@ -5,6 +5,12 @@ main[data-state="playing"] {
     "action-prev term action-next"
     "action-prev action-reveal action-next";
 }
+main:not([data-state="landing"]) .only-not-landing {
+  display: initial;
+}
+main:not([data-state="landing"]) .only-landing {
+  display: none;
+}
 main[data-state="playing"] .only-not-playing {
   display: none;
 }
@@ -12,11 +18,8 @@ main[data-state="playing"] .only-not-playing {
 main[data-state="playing"] .only-playing {
   display: initial;
 }
-body:has(main[data-state="playing"]) {
-  grid-template-rows: 1fr;
-}
-body:has(main[data-state="playing"]) > header,
-body:has(main[data-state="playing"]) > footer {
+body:has(main:not([data-state="landing"])) > header,
+body:has(main:not([data-state="landing"])) > footer {
   display: none;
 }
 #action-next {
@@ -27,6 +30,25 @@ body:has(main[data-state="playing"]) > footer {
 }
 #action-prev {
   grid-area: action-prev;
+}
+#action-start {
+  grid-area: action-start;
+}
+#full-list {
+  grid-area: term;
+  overflow-y: scroll;
+  max-height: 80vh;
+  width: 100%;
+}
+#full-list dl {
+  margin: auto;
+  width: fit-content;
+}
+dt.term {
+	font-weight: bold;
+}
+dd.explanation:not(:last-child) {
+	margin-bottom: 1em;
 }
 #action-next,
 #action-prev {
@@ -53,4 +75,12 @@ dialog::backdrop {
 
 .explanation {
   font-size: clamp(2vw, 42px, 5em);
+}
+
+main[data-state="listing"] #term,
+main[data-state="listing"] #action-show {
+	display: none;
+}
+main[data-state="listing"] #full-list {
+	display: initial;
 }

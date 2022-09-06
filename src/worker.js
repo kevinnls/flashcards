@@ -1,7 +1,7 @@
 //import { parse } from 'yaml';
 import { load, next, prev } from "./DeckFunctions.js";
 
-const originalDeck = [];
+let originalDeck = [];
 let completedCardList = [];
 let remainingCardList = [];
 
@@ -11,6 +11,9 @@ onmessage = async (msg) => {
     case "ping":
       postMessage({ type: "pong" });
       break;
+    case "all":
+      postMessage({type: "all", content: originalDeck})
+      break;
     case "prev":
       res = prev(completedCardList);
       postMessage(res);
@@ -18,7 +21,7 @@ onmessage = async (msg) => {
     case "next":
       let { res, index } = next(remainingCardList);
       postMessage(res);
-      if (!loop) {
+      if (false) {
         completedCardList.push(res.content);
         remainingCardList.splice(index, 1);
         console.table(completedCardList);
@@ -26,7 +29,8 @@ onmessage = async (msg) => {
       break;
     case "load":
       if (!msg.data.deckUrl) throw "deckUrl not provided for loading";
-      remainingCardList = await load(msg.data.deckUrl);
+      originalDeck = await load(msg.data.deckUrl);
+      remainingCardList = structuredClone(originalDeck)
       postMessage({ type: "loaded" });
       break;
     default:

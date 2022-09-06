@@ -19,8 +19,11 @@
 	  margin: 0px;
 	  height: 100vh;
 	  display: grid;
-	  grid-template-rows: 5vh 1fr 5vh;
+	  grid-template-rows: 1fr;
 	  place-items: center;
+	}
+	body:has(main[data-state="landing"]) {
+	  grid-template-rows: 5vh 1fr 5vh;
 	}
 	main {
 	  display: grid;
@@ -42,7 +45,7 @@
 	.term,.explanation {
 	  font-family: 'Noto Sans Mono', monospace;
 	}
-	.only-playing {
+	.only-playing, .only-not-landing {
 	  display: none;
 	}
 	.container.full-list {
@@ -55,13 +58,13 @@
   </head>
   <body>
     <header><h1>flashcards</h1></header>
-    <main data-state="landing">
-      <header style="grid-area: header">
+    <main data-state="landing" id="main">
+      <header>
         <span>WHAT IS&hellip; </span>
-        <button id="action-stop" title="stop" class="only-playing">X</button>
+        <button id="action-stop" title="stop" class="only-not-landing">X</button>
       </header>
       <big id="term" class="term">???</big>
-      <button disabled="true" id="action-show" class="wait-load only-not-playing">
+      <button disabled="true" id="action-show" class="wait-load only-landing">
         show all
       </button>
       <button disabled="true" id="action-start" class="wait-load only-not-playing">
@@ -82,9 +85,8 @@
         <header><span class="term">???</span> is&hellip;</header>
         <p class="explanation">!!!</p>
       </dialog>
-      <article class="container full-list">
-	      <dl id="full-list">
-	      </dl>
+      <article id="full-list" class="container full-list">
+	      <dl><!--will be replaced by scripts--></dl>
       </article>
     </main>
     <footer>&copy; Kevin Samuel 2022</footer>
