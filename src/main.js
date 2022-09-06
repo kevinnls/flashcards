@@ -24,6 +24,7 @@ startBtn.addEventListener("click", () => {
 });
 stopBtn.addEventListener("click", () => {
   document.querySelector("main").dataset.state = "stopped";
+  updateCard({term: "???", defn: "!!!"})
 });
 
 explainDiag.addEventListener("click", ({ target: target }) => {
@@ -39,6 +40,9 @@ function updateCard(nextCard) {
   termBoxes.forEach((node) => (node.innerText = nextCard.term));
   defnBoxes.forEach((node) => (node.innerText = nextCard.defn));
 }
+function populateList(dataList) {
+
+}
 
 function handleWorkerMessage(msg) {
   switch (msg.data.type) {
@@ -49,9 +53,13 @@ function handleWorkerMessage(msg) {
       updateCard(msg.data.content);
       break;
     case "loaded":
-      startBtn.disabled = false;
+	  document.querySelectorAll('.wait-load')
+			  .forEach( e => e.disabled = false)
       break;
 
+    case "show-all":
+	  populateList(message.data.content)
+	  break;
     default:
       throw `unknown message from worker: ${msg.data.type}`;
   }
