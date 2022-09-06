@@ -4,7 +4,6 @@ volumes:
 services:
   dev:
     image: kevinnls/node-unprivileged:alpine
-    container_name: learning-www-vite
     user: node
     working_dir: /app
     command: yarn run dev --host

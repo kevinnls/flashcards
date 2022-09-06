@@ -1,5 +1,5 @@
 
-const worker = new Worker('./src/worker.js', {type:"module"})
+const worker = new Worker(new URL('./worker.js',import.meta.url), {type:"module"})
 worker.onerror = console.error
 worker.onmessage = handleWorkerMessage
 worker.postMessage({type: 'ping'})
