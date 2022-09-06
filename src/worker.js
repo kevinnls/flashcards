@@ -22,6 +22,8 @@ onmessage = async (msg) => {
       if(currentIndex === 1) {
 	      postMessage({ type: 'end', dir: 'bck' })
       }
+      if (currentIndex < completedCardList.length)
+	      postMessage({type: 'start', dir: 'fwd'})
       break;
  
     case "next":

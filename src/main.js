@@ -112,6 +112,10 @@ function handleWorkerMessage(msg) {
 	  mainEle.dataset.state = "listing";
 	  break;
     case "start":
+	  if (msg.data.dir === 'fwd') {
+	    activateButton(nextBtn)
+	    break;
+	  }
 	  activateButton(prevBtn)
 	  break;
     case "end":
