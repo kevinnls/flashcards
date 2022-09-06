@@ -66,16 +66,15 @@ function activateButton(btn){
 	})
 }
 function endDeck(direction){
-	if(direction == 'fwd') {
+	if(direction === 'fwd') {
 		endButton(nextBtn)
 		restartBtn.style.display = 'block';
 	}
-	if(direction == 'bck') {
+	if(direction === 'bck') {
 		endButton(prevBtn)
 	}
 }
 function startDeck(){
-	debugger;
 	endButton(prevBtn)
 	activateButton(nextBtn)
 	restartBtn.style.display = 'none';
