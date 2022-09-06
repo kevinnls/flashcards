@@ -3,10 +3,11 @@ export { prevCard as prev, nextCard as next, loadDeck as load };
 function randInt(max = 10) {
   return Math.floor(Math.random() * max);
 }
-function prevCard(cardList) {
+function prevCard(count, cardList) {
+  let card = cardList.at(count - 1)
   return {
-    type: "prev",
-    content: cardList.at(-1),
+    type: "update",
+    content: card
   };
 }
 function nextCard(cardList) {
@@ -14,7 +15,7 @@ function nextCard(cardList) {
   const randCard = cardList.at(randIndex);
   return {
     res: {
-      type: "next",
+      type: "update",
       content: randCard,
     },
     index: randIndex,

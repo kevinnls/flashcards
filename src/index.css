@@ -84,3 +84,14 @@ main[data-state="listing"] #action-show {
 main[data-state="listing"] #full-list {
 	display: initial;
 }
+#bottom-buttons{
+	width: 75%;
+	height: 8vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+#action-restart {
+	display: none;
+}

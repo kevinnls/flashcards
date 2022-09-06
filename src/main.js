@@ -15,6 +15,7 @@ const showBtn = document.getElementById("action-show");
 const prevBtn = document.getElementById("action-prev");
 const nextBtn = document.getElementById("action-next");
 const revealBtn = document.getElementById("action-reveal");
+const restartBtn = document.getElementById("action-restart");
 
 const explainDiag = document.getElementById("explanation");
 const dlContainer = document.querySelector("#full-list.container");
@@ -40,12 +41,38 @@ explainDiag.addEventListener("click", ({ target: target }) => {
 revealBtn.addEventListener("click", () => {
   explainDiag.showModal();
 });
+restartBtn.addEventListener("click", () => {
+  worker.postMessage({type:'restart'})
+});
+
 
 nextBtn.addEventListener("click", () => worker.postMessage({ type: "next" }));
+prevBtn.addEventListener("click", () => worker.postMessage({ type: "prev" }));
 
 function updateCard(nextCard) {
   termBoxes.forEach((node) => (node.innerText = nextCard.term));
   defnBoxes.forEach((node) => (node.innerText = nextCard.defn));
+}
+function endButton(btn){
+	Object.assign(btn, {
+		textContent: '|',
+		disabled: true
+	})
+}
+function activateButton(btn,dir){
+	Object.assign(btn, {
+		textContent: dir ==='fwd'? '>' : '<',
+		disabled: false
+	})
+}
+function endDeck(direction){
+	if(direction == 'fwd') {
+		endButton(nextBtn)
+	}
+	if(direction == 'bck') {
+		endButton(prevBtn)
+	}
+
 }
 function populateList(dataList) {
 
@@ -67,7 +94,7 @@ function handleWorkerMessage(msg) {
     case "pong":
       console.log("received pong from worker!");
       break;
-    case "next":
+    case "update":
       updateCard(msg.data.content);
       break;
     case "loaded":
@@ -78,6 +105,12 @@ function handleWorkerMessage(msg) {
     case "all":
 	  populateList(msg.data.content)
 	  mainEle.dataset.state = "listing";
+	  break;
+    case "start":
+	  activateButton(prevBtn)
+	  break;
+    case "end":
+	  endDeck(msg.data.dir)
 	  break;
     default:
       throw `unknown message from worker: ${msg.data.type}`;
