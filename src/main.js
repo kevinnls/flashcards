@@ -59,20 +59,26 @@ function endButton(btn){
 		disabled: true
 	})
 }
-function activateButton(btn,dir){
+function activateButton(btn){
 	Object.assign(btn, {
-		textContent: dir ==='fwd'? '>' : '<',
+		textContent: btn.title === 'next'? '>' : '<',
 		disabled: false
 	})
 }
 function endDeck(direction){
 	if(direction == 'fwd') {
 		endButton(nextBtn)
+		restartBtn.style.display = 'block';
 	}
 	if(direction == 'bck') {
 		endButton(prevBtn)
 	}
-
+}
+function startDeck(){
+	debugger;
+	endButton(prevBtn)
+	activateButton(nextBtn)
+	restartBtn.style.display = 'none';
 }
 function populateList(dataList) {
 
@@ -111,6 +117,10 @@ function handleWorkerMessage(msg) {
 	  break;
     case "end":
 	  endDeck(msg.data.dir)
+	  break;
+    case "reset":
+	  startDeck()
+	  worker.postMessage({type: 'next'})
 	  break;
     default:
       throw `unknown message from worker: ${msg.data.type}`;

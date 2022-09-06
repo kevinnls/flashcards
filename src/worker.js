@@ -49,7 +49,13 @@ onmessage = async (msg) => {
       remainingCardList = structuredClone(originalDeck)
       postMessage({ type: "loaded" });
       break;
+    case "restart":
+      remainingCardList = structuredClone(originalDeck)
+      completedCardList = []
+      currentIndex = 0
+      postMessage({ type: 'reset' })
+      break;
     default:
-      throw "unknown message type received from main";
+      throw `unknown message type received from main ${msg.data.type}`;
   }
 };
