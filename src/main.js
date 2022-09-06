@@ -48,6 +48,9 @@ function updateCard(nextCard) {
   defnBoxes.forEach((node) => (node.innerText = nextCard.defn));
 }
 function populateList(dataList) {
+
+	if (dlContainer.dataset.populated === "true" ) return
+
 	const dl = document.createElement('dl')
 	dataList.forEach( item => {
 		dl.appendChild(
@@ -56,6 +59,7 @@ function populateList(dataList) {
 			Object.assign(document.createElement('dd'),{textContent: item.defn, className: 'explanation'}))
 	})
 	dlContainer.replaceChild(dl, dlContainer.children[0])
+	dlContainer.dataset.populated=true
 }
 
 function handleWorkerMessage(msg) {
