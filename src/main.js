@@ -3,7 +3,7 @@ const worker = new Worker('./src/worker.js', {type:"module"})
 worker.onerror = console.error
 worker.onmessage = handleWorkerMessage
 worker.postMessage({type: 'ping'})
-worker.postMessage({type:'load', deckUrl: '../deck.min.json'})
+worker.postMessage({type:'load', deckUrl: '../../deck.min.json'})
 
 const startBtn = document.getElementById('action-start')
 const stopBtn = document.getElementById('action-stop')
