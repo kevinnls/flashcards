@@ -1,3 +1,33 @@
+main[data-state="playing"] {
+  grid-template-columns: 1fr 3fr 1fr;
+  grid-template-areas:
+    "action-prev header action-next"
+    "action-prev term action-next"
+    "action-prev action-reveal action-next";
+}
+main[data-state="playing"] .only-not-playing {
+  display: none;
+}
+
+main[data-state="playing"] .only-playing {
+  display: initial;
+}
+body:has(main[data-state="playing"]) {
+  grid-template-rows: 1fr;
+}
+body:has(main[data-state="playing"]) > header,
+body:has(main[data-state="playing"]) > footer {
+  display: none;
+}
+#action-next {
+  grid-area: action-next;
+}
+#action-reveal {
+  grid-area: action-reveal;
+}
+#action-prev {
+  grid-area: action-prev;
+}
 #action-next,
 #action-prev {
   opacity: 0.3;

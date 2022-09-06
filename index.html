@@ -27,55 +27,23 @@
 	  width: clamp(60vw, 400px, 100vw);
 	  height: 100%;
 	  place-items: center;
-	}
-	#term {
-	  grid-area: term;
-	}
-	#action-next {
-	  grid-area: action-next;
-	}
-	#action-reveal {
-	  grid-area: action-reveal;
-	}
-	#action-prev {
-	  grid-area: action-prev;
-	}
-	main {
 	  grid-template-areas:
 	    "header"
 	    "term"
 	    "action-start";
 	}
-	main[data-state="playing"] {
-	  grid-template-columns: 1fr 3fr 1fr;
-	  grid-template-areas:
-	    "action-prev header action-next"
-	    "action-prev term action-next"
-	    "action-prev action-reveal action-next";
-	}
-	main[data-state="playing"] .only-not-playing {
-	  display: none;
-	}
-
 	#term {
+	  grid-area: term;
 	  font-size: 7.5em;
 	}
 	.term,.explanation {
 	  font-family: 'Noto Sans Mono' monospace;
 	}
-	main .only-playing {
+	.only-playing {
 	  display: none;
 	}
-	main[data-state="playing"] .only-playing {
-	  display: initial;
-	}
-
-	body:has(main[data-state="playing"]) {
-	  grid-template-rows: 1fr;
-	}
-	body:has(main[data-state="playing"]) > header,
-	body:has(main[data-state="playing"]) > footer {
-	  display: none;
+	.container.full-list {
+		display: none;
 	}
     </style>
     <link defer rel="stylesheet" href="/src/index.css"/>
@@ -111,6 +79,10 @@
         <header><span class="term">???</span> is&hellip;</header>
         <p class="explanation">!!!</p>
       </dialog>
+      <article class="container full-list">
+	      <dl id="full-list">
+	      </dl>
+      </article>
     </main>
     <footer>&copy; Kevin Samuel 2022</footer>
   </body>
