@@ -1,80 +1,9 @@
-* {
-  box-sizing: border-box;
-}
-:root {
-  color-scheme: dark light;
-  font-family: sans-serif;
-}
-
-body {
-  margin: 0px;
-  height: 100vh;
-  display: grid;
-  grid-template-rows: 5vh 1fr 5vh;
-  place-items: center;
-}
-main {
-  display: grid;
-  width: clamp(60vw, 400px, 100vw);
-  height: 100%;
-  place-items: center;
-}
-#term {
-  grid-area: term;
-}
-#action-next {
-  grid-area: action-next;
-}
-#action-reveal {
-  grid-area: action-reveal;
-}
-#action-prev {
-  grid-area: action-prev;
-}
-main {
-  grid-template-areas:
-    "header"
-    "term"
-    "action-start";
-}
-main[data-state="playing"] {
-  grid-template-columns: 1fr 3fr 1fr;
-  grid-template-areas:
-    "action-prev header action-next"
-    "action-prev term action-next"
-    "action-prev action-reveal action-next";
-}
 #action-next,
 #action-prev {
   opacity: 0.3;
   font-size: 5em;
   height: 100%;
   width: 100%;
-}
-
-main[data-state="playing"] .only-not-playing {
-  display: none;
-}
-
-#term {
-  font-size: 7.5em;
-}
-.explanation {
-  font-size: clamp(2vw, 42px, 5em);
-}
-main .only-playing {
-  display: none;
-}
-main[data-state="playing"] .only-playing {
-  display: initial;
-}
-
-body:has(main[data-state="playing"]) {
-  grid-template-rows: 1fr;
-}
-body:has(main[data-state="playing"]) > header,
-body:has(main[data-state="playing"]) > footer {
-  display: none;
 }
 
 dialog[open] {
@@ -90,4 +19,8 @@ dialog {
 }
 dialog::backdrop {
   backdrop-filter: blur(20px);
+}
+
+.explanation {
+  font-size: clamp(2vw, 42px, 5em);
 }
