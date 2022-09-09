@@ -18,8 +18,8 @@ main[data-state="playing"] .only-not-playing {
 main[data-state="playing"] .only-playing {
   display: initial;
 }
-body:has(main:not([data-state="landing"])) > header,
-body:has(main:not([data-state="landing"])) > footer {
+body:not([data-state="landing"]) > header,
+body:not([data-state="landing"]) > footer {
   display: none;
 }
 #action-next {

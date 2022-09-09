@@ -25,10 +25,12 @@ const defnBoxes = document.querySelectorAll(".explanation");
 
 startBtn.addEventListener("click", () => {
   mainEle.dataset.state = "playing";
+  document.body.dataset.state = "landing";
   worker.postMessage({ type: "next" });
 });
 stopBtn.addEventListener("click", () => {
   mainEle.dataset.state = "landing";
+  document.body.dataset.state = "landing";
   updateCard({term: "???", defn: "!!!"})
 });
 showBtn.addEventListener("click", () => {
@@ -110,6 +112,7 @@ function handleWorkerMessage(msg) {
     case "all":
 	  populateList(msg.data.content)
 	  mainEle.dataset.state = "listing";
+	  document.body.dataset.state = "listing";
 	  break;
     case "start":
 	  if (msg.data.dir === 'fwd') {
