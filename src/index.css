@@ -1,3 +1,9 @@
+main > header {
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
 main[data-state="playing"] {
   grid-template-columns: 1fr 3fr 1fr;
   grid-template-areas:
