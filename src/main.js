@@ -25,7 +25,7 @@ const defnBoxes = document.querySelectorAll(".explanation");
 
 startBtn.addEventListener("click", () => {
   mainEle.dataset.state = "playing";
-  document.body.dataset.state = "landing";
+  document.body.dataset.state = "playing";
   worker.postMessage({ type: "next" });
 });
 stopBtn.addEventListener("click", () => {
