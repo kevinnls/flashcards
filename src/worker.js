@@ -25,7 +25,7 @@ onmessage = async (msg) => {
       if (currentIndex < completedCardList.length)
 	      postMessage({type: 'start', dir: 'fwd'})
       break;
- 
+
     case "next":
       currentIndex += 1
       if (completedCardList.length === 1 || currentIndex === 2)
@@ -33,7 +33,8 @@ onmessage = async (msg) => {
 
       if(currentIndex <= completedCardList.length){
 	      postMessage({type: 'update', content: completedCardList.at(currentIndex - 1)})
-	      if (currentIndex === completedCardList.length) postMessage({type: 'end', dir: 'fwd'})
+	      if (remainingCardList.length === 0)
+		      postMessage({type: 'end', dir: 'fwd'})
 	      break;
       }
 
