@@ -47,56 +47,11 @@ restartBtn.addEventListener("click", () => {
   worker.postMessage({type:'restart'})
 });
 
-
 nextBtn.addEventListener("click", () => worker.postMessage({ type: "next" }));
 prevBtn.addEventListener("click", () => worker.postMessage({ type: "prev" }));
 
-function updateCard(nextCard) {
-  termBoxes.forEach((node) => (node.innerText = nextCard.term));
-  defnBoxes.forEach((node) => (node.innerText = nextCard.defn));
-}
-function endButton(btn){
-	Object.assign(btn, {
-		textContent: '|',
-		disabled: true
-	})
-}
-function activateButton(btn){
-	Object.assign(btn, {
-		textContent: btn.title === 'next'? '>' : '<',
-		disabled: false
-	})
-}
-function endDeck(direction){
-	if(direction === 'fwd') {
-		endButton(nextBtn)
-		restartBtn.style.display = 'block';
-	}
-	if(direction === 'bck') {
-		endButton(prevBtn)
-	}
-}
-function startDeck(){
-	endButton(prevBtn)
-	activateButton(nextBtn)
-	restartBtn.style.display = 'none';
-}
-function populateList(dataList) {
 
-	if (dlContainer.dataset.populated === "true" ) return
-
-	const dl = document.createElement('dl')
-	dataList.forEach( item => {
-		dl.appendChild(
-			Object.assign(document.createElement('dt'),{textContent: item.term, className: 'term'}))
-		dl.appendChild(
-			Object.assign(document.createElement('dd'),{textContent: item.defn, className: 'explanation'}))
-	})
-	dlContainer.replaceChild(dl, dlContainer.children[0])
-	dlContainer.dataset.populated=true
-}
-
-function handleWorkerMessage(msg) {
+async function handleWorkerMessage(msg) {
   switch (msg.data.type) {
     case "pong":
       console.log("received pong from worker!");
@@ -107,6 +62,7 @@ function handleWorkerMessage(msg) {
     case "loaded":
 	  document.querySelectorAll('.wait-load')
 			  .forEach( e => e.disabled = false)
+	  var deck = await import('./module/deck.js')
       break;
 
     case "all":
