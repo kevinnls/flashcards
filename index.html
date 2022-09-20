@@ -50,7 +50,10 @@
 		display: none;
 	}
     </style>
-    <link defer rel="stylesheet" href="/src/index.css"/>
+    <link rel="preload" href="/src/index.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+	    <link rel="stylesheet" href="/src/index.css">
+    </noscript>
     <script type="module" src="/src/main.js"></script>
   </head>
   <body data-state="landing">
