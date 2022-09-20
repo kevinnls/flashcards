@@ -3,6 +3,6 @@ export default {
   build: {
     target: 'esnext',
     polyfillModulePreload: false,
-    assetsInlineLimit: 1536,
+    assetsInlineLimit: 768,
   }
 };
