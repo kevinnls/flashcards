@@ -1,6 +1,7 @@
 export default {
   base: "./",
   build: {
-    target: 'esnext'
+    target: 'esnext',
+    polyfillModulePreload: false,
   }
 };
