@@ -1,9 +1,3 @@
-main > header {
-	height: 100%;
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-}
 main[data-state="playing"] {
   grid-template-columns: 1fr 3fr 1fr;
   grid-template-areas:
@@ -28,23 +22,8 @@ body:not([data-state="landing"]) > header,
 body:not([data-state="landing"]) > footer {
   display: none;
 }
-#action-next {
-  grid-area: action-next;
-}
 #action-reveal {
   grid-area: action-reveal;
-}
-#action-prev {
-  grid-area: action-prev;
-}
-#action-start {
-  grid-area: action-start;
-}
-#full-list {
-  grid-area: term;
-  overflow-y: scroll;
-  max-height: 80vh;
-  width: 100%;
 }
 #full-list dl {
   margin: auto;
@@ -56,24 +35,9 @@ dt.term {
 dd.explanation:not(:last-child) {
 	margin-bottom: 1em;
 }
-#action-next,
-#action-prev {
-  opacity: 0.3;
-  font-size: 5em;
-  height: 100%;
-  width: 100%;
-}
 
 dialog[open] {
   display: grid;
-}
-dialog {
-  border-width: 1px;
-  border-radius: 13px;
-  place-items: center;
-  grid-template-rows: 1fr 4fr;
-  width: clamp(60vw, 400px, 90vw);
-  height: 50%;
 }
 dialog::backdrop {
   backdrop-filter: blur(20px);
@@ -91,12 +55,6 @@ main[data-state="listing"] #full-list {
 	display: initial;
 }
 
-#bottom-buttons{
-	width: 75%;
-	height: 8vh;
-	flex-direction: column;
-	justify-content: space-between;
-}
 main[data-state="playing"] > #bottom-buttons {
 	display: flex;
 }
