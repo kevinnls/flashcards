@@ -1,140 +1,149 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="flashcards of the international phonetic alphabet (IPA) for English">
-    <title>flashcards</title>
-    <style>
-	* {
-	  box-sizing: border-box;
-	}
-	:root {
-	  color-scheme: dark light;
-	  font-family: sans-serif;
-	}
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta
+			name="description"
+			content="flashcards of the international phonetic alphabet (IPA) for English"
+		/>
+		<title>flashcards</title>
+		<style>
+			* {
+				box-sizing: border-box;
+			}
+			:root {
+				color-scheme: dark light;
+				font-family: sans-serif;
+			}
 
-	body {
-	  margin: 0px;
-	  height: 100vh;
-	  display: grid;
-	  grid-template-rows: 1fr;
-	  place-items: center;
-	}
-	body[data-state="landing"] {
-	  grid-template-rows: 5vh 1fr 5vh;
-	}
-	main > header {
-		height: 100%;
-		display: flex;
-		flex-direction: column;
-		justify-content: space-between;
-	}
-	main {
-	  display: grid;
-	  width: clamp(60vw, 400px, 100vw);
-	  height: 100%;
-	  place-items: center;
-	  grid-template-areas:
-	    "header"
-	    "term"
-	    "action-start";
-	}
-	dialog {
-	  border-width: 1px;
-	  border-radius: 13px;
-	  place-items: center;
-	  grid-template-rows: 1fr 4fr;
-	  width: clamp(60vw, 400px, 90vw);
-	  height: 50%;
-	}
-	.term {
-	  font-size: 3em;
-	}
-	#action-next,
-	#action-prev {
-	  opacity: 0.3;
-	  font-size: 5em;
-	  height: 100%;
-	  width: 100%;
-	}
-	#action-next {
-	  grid-area: action-next;
-	}
-	#action-prev {
-	  grid-area: action-prev;
-	}
-	#action-start {
-	  grid-area: action-start;
-	}
-	#full-list {
-	  grid-area: term;
-	  overflow-y: scroll;
-	  max-height: 80vh;
-	  width: 100%;
-	}
-	#term {
-	  grid-area: term;
-	  font-size: 7.5em;
-	}
-	/*.term,.explanation {
+			body {
+				margin: 0px;
+				height: 100vh;
+				display: grid;
+				grid-template-rows: 1fr;
+				place-items: center;
+			}
+			body[data-state="landing"] {
+				grid-template-rows: 5vh 1fr 5vh;
+			}
+			main > header {
+				height: 100%;
+				display: flex;
+				flex-direction: column;
+				justify-content: space-between;
+			}
+			main {
+				display: grid;
+				width: clamp(60vw, 400px, 100vw);
+				height: 100%;
+				place-items: center;
+				grid-template-areas:
+					"header"
+					"term"
+					"action-start";
+			}
+			dialog {
+				border-width: 1px;
+				border-radius: 13px;
+				place-items: center;
+				grid-template-rows: 1fr 4fr;
+				width: clamp(60vw, 400px, 90vw);
+				height: 50%;
+			}
+			.term {
+				font-size: 3em;
+			}
+			#action-next,
+			#action-prev {
+				opacity: 0.3;
+				font-size: 5em;
+				height: 100%;
+				width: 100%;
+			}
+			#action-next {
+				grid-area: action-next;
+			}
+			#action-prev {
+				grid-area: action-prev;
+			}
+			#action-start {
+				grid-area: action-start;
+			}
+			#full-list {
+				grid-area: term;
+				overflow-y: scroll;
+				max-height: 80vh;
+				width: 100%;
+			}
+			#term {
+				grid-area: term;
+				font-size: 7.5em;
+			}
+			/*.term,.explanation {
 	  font-family: monospace;
 	}*/
-	#bottom-buttons{
-		width: 75%;
-		height: 8vh;
-		flex-direction: column;
-		justify-content: space-between;
-	}
-	.only-playing, .only-not-landing {
-	  display: none;
-	}
-	.container.full-list {
-		display: none;
-	}
-    </style>
-    <link rel="stylesheet" media="print" href="/src/index.css" onload="this.onload=null;this.media='all'">
-    <noscript>
-	    <link rel="stylesheet" href="/src/index.css">
-    </noscript>
-    <script type="module" src="/src/main.js"></script>
-  </head>
-  <body data-state="landing">
-    <header><h1>flashcards</h1></header>
-    <main data-state="landing" id="main">
-      <header>
-        <button id="action-stop" title="stop" class="only-not-landing">X</button>
-        <span>WHAT IS&hellip; </span>
-      </header>
-      <big id="term" class="term">???</big>
-      <button disabled="true" id="action-show" class="wait-load only-landing">
-        show all
-      </button>
-      <button disabled="true" id="action-start" class="wait-load only-not-playing">
-        start
-      </button>
-      <button
-        disabled="true"
-        id="action-prev"
-        class="only-playing"
-        title="previous"
-      >
-        |
-      </button>
-      <div class="only-playing" id="bottom-buttons">
-	      <button id="action-reveal" class="only-playing">reveal</button>
-	      <button id="action-restart" class="only-playing" >start over</button>
-      </div>
-      <button id="action-next" class="only-playing" title="next">&gt;</button>
+			#bottom-buttons {
+				width: 75%;
+				height: 8vh;
+				flex-direction: column;
+				justify-content: space-between;
+			}
+			.only-playing,
+			.only-not-landing {
+				display: none;
+			}
+			.container.full-list {
+				display: none;
+			}
+		</style>
+		<link
+			rel="stylesheet"
+			media="print"
+			href="/src/index.css"
+			onload="this.onload=null;this.media='all'"
+		/>
+		<noscript>
+			<link rel="stylesheet" href="/src/index.css" />
+		</noscript>
+		<script type="module" src="/src/main.js"></script>
+	</head>
+	<body data-state="landing">
+		<header><h1>flashcards</h1></header>
+		<main data-state="landing" id="main">
+			<header>
+				<button id="action-stop" title="stop" class="only-not-landing">X</button>
+				<span>WHAT IS&hellip; </span>
+			</header>
+			<big id="term" class="term">???</big>
+			<button disabled="true" id="action-show" class="wait-load only-landing">
+				show all
+			</button>
+			<button disabled="true" id="action-start" class="wait-load only-not-playing">
+				start
+			</button>
+			<button
+				disabled="true"
+				id="action-prev"
+				class="only-playing"
+				title="previous"
+			>
+				|
+			</button>
+			<div class="only-playing" id="bottom-buttons">
+				<button id="action-reveal" class="only-playing">reveal</button>
+				<button id="action-restart" class="only-playing">start over</button>
+			</div>
+			<button id="action-next" class="only-playing" title="next">&gt;</button>
 
-      <dialog id="explanation">
-        <header><span class="term">???</span> is&hellip;</header>
-        <p class="explanation">!!!</p>
-      </dialog>
-      <article id="full-list" class="container full-list">
-	      <dl><!--will be replaced by scripts--></dl>
-      </article>
-    </main>
-    <footer>&copy; Kevin Samuel 2022</footer>
-  </body>
+			<dialog id="explanation">
+				<header><span class="term">???</span> is&hellip;</header>
+				<p class="explanation">!!!</p>
+			</dialog>
+			<article id="full-list" class="container full-list">
+				<dl><!--will be replaced by scripts--></dl>
+			</article>
+		</main>
+		<footer>&copy; Kevin Samuel 2022</footer>
+	</body>
 </html>

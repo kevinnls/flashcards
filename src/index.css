@@ -1,33 +1,33 @@
 main[data-state="playing"] {
-  grid-template-columns: 1fr 3fr 1fr;
-  grid-template-areas:
-    "action-prev header action-next"
-    "action-prev term action-next"
-    "action-prev action-reveal action-next";
+	grid-template-columns: 1fr 3fr 1fr;
+	grid-template-areas:
+		"action-prev header action-next"
+		"action-prev term action-next"
+		"action-prev action-reveal action-next";
 }
 main:not([data-state="landing"]) .only-not-landing {
-  display: initial;
+	display: initial;
 }
 main:not([data-state="landing"]) .only-landing {
-  display: none;
+	display: none;
 }
 main[data-state="playing"] .only-not-playing {
-  display: none;
+	display: none;
 }
 
 main[data-state="playing"] .only-playing {
-  display: initial;
+	display: initial;
 }
 body:not([data-state="landing"]) > header,
 body:not([data-state="landing"]) > footer {
-  display: none;
+	display: none;
 }
 #action-reveal {
-  grid-area: action-reveal;
+	grid-area: action-reveal;
 }
 #full-list dl {
-  margin: auto;
-  width: fit-content;
+	margin: auto;
+	width: fit-content;
 }
 dt.term {
 	font-weight: bold;
@@ -37,14 +37,14 @@ dd.explanation:not(:last-child) {
 }
 
 dialog[open] {
-  display: grid;
+	display: grid;
 }
 dialog::backdrop {
-  backdrop-filter: blur(20px);
+	backdrop-filter: blur(20px);
 }
 
 .explanation {
-  font-size: clamp(2vw, 42px, 5em);
+	font-size: clamp(2vw, 42px, 5em);
 }
 
 main[data-state="listing"] #term,

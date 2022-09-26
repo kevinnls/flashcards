@@ -1,5 +1,5 @@
 const worker = new Worker(new URL("./worker.js", import.meta.url), {
-  type: "module",
+	type: "module",
 });
 
 worker.onerror = console.error;
@@ -24,111 +24,116 @@ const termBoxes = document.querySelectorAll(".term");
 const defnBoxes = document.querySelectorAll(".explanation");
 
 startBtn.addEventListener("click", () => {
-  mainEle.dataset.state = "playing";
-  document.body.dataset.state = "playing";
-  worker.postMessage({ type: "next" });
+	mainEle.dataset.state = "playing";
+	document.body.dataset.state = "playing";
+	worker.postMessage({ type: "next" });
 });
 stopBtn.addEventListener("click", () => {
-  mainEle.dataset.state = "landing";
-  document.body.dataset.state = "landing";
-  updateCard({term: "???", defn: "!!!"})
+	mainEle.dataset.state = "landing";
+	document.body.dataset.state = "landing";
+	updateCard({ term: "???", defn: "!!!" });
 });
 showBtn.addEventListener("click", () => {
-	worker.postMessage({type: "all"})
-})
+	worker.postMessage({ type: "all" });
+});
 
 explainDiag.addEventListener("click", ({ target: target }) => {
-  if (target.nodeName === "DIALOG") target.close();
+	if (target.nodeName === "DIALOG") target.close();
 });
 revealBtn.addEventListener("click", () => {
-  explainDiag.showModal();
+	explainDiag.showModal();
 });
 restartBtn.addEventListener("click", () => {
-  worker.postMessage({type:'restart'})
+	worker.postMessage({ type: "restart" });
 });
-
 
 nextBtn.addEventListener("click", () => worker.postMessage({ type: "next" }));
 prevBtn.addEventListener("click", () => worker.postMessage({ type: "prev" }));
 
 function updateCard(nextCard) {
-  termBoxes.forEach((node) => (node.innerText = nextCard.term));
-  defnBoxes.forEach((node) => (node.innerText = nextCard.defn));
+	termBoxes.forEach((node) => (node.innerText = nextCard.term));
+	defnBoxes.forEach((node) => (node.innerText = nextCard.defn));
 }
-function endButton(btn){
+function endButton(btn) {
 	Object.assign(btn, {
-		textContent: '|',
-		disabled: true
-	})
+		textContent: "|",
+		disabled: true,
+	});
 }
-function activateButton(btn){
+function activateButton(btn) {
 	Object.assign(btn, {
-		textContent: btn.title === 'next'? '>' : '<',
-		disabled: false
-	})
+		textContent: btn.title === "next" ? ">" : "<",
+		disabled: false,
+	});
 }
-function endDeck(direction){
-	if(direction === 'fwd') {
-		endButton(nextBtn)
-		restartBtn.style.display = 'block';
+function endDeck(direction) {
+	if (direction === "fwd") {
+		endButton(nextBtn);
+		restartBtn.style.display = "block";
 	}
-	if(direction === 'bck') {
-		endButton(prevBtn)
+	if (direction === "bck") {
+		endButton(prevBtn);
 	}
 }
-function startDeck(){
-	endButton(prevBtn)
-	activateButton(nextBtn)
-	restartBtn.style.display = 'none';
+function startDeck() {
+	endButton(prevBtn);
+	activateButton(nextBtn);
+	restartBtn.style.display = "none";
 }
 function populateList(dataList) {
+	if (dlContainer.dataset.populated === "true") return;
 
-	if (dlContainer.dataset.populated === "true" ) return
-
-	const dl = document.createElement('dl')
-	dataList.forEach( item => {
+	const dl = document.createElement("dl");
+	dataList.forEach((item) => {
 		dl.appendChild(
-			Object.assign(document.createElement('dt'),{textContent: item.term, className: 'term'}))
+			Object.assign(document.createElement("dt"), {
+				textContent: item.term,
+				className: "term",
+			})
+		);
 		dl.appendChild(
-			Object.assign(document.createElement('dd'),{textContent: item.defn, className: 'explanation'}))
-	})
-	dlContainer.replaceChild(dl, dlContainer.children[0])
-	dlContainer.dataset.populated=true
+			Object.assign(document.createElement("dd"), {
+				textContent: item.defn,
+				className: "explanation",
+			})
+		);
+	});
+	dlContainer.replaceChild(dl, dlContainer.children[0]);
+	dlContainer.dataset.populated = true;
 }
 
 function handleWorkerMessage(msg) {
-  switch (msg.data.type) {
-    case "pong":
-      console.log("received pong from worker!");
-      break;
-    case "update":
-      updateCard(msg.data.content);
-      break;
-    case "loaded":
-	  document.querySelectorAll('.wait-load')
-			  .forEach( e => e.disabled = false)
-      break;
+	switch (msg.data.type) {
+		case "pong":
+			console.log("received pong from worker!");
+			break;
+		case "update":
+			updateCard(msg.data.content);
+			break;
+		case "loaded":
+			document.querySelectorAll(".wait-load").forEach((e) => (e.disabled = false));
+			break;
 
-    case "all":
-	  populateList(msg.data.content)
-	  mainEle.dataset.state = "listing";
-	  document.body.dataset.state = "listing";
-	  break;
-    case "start":
-	  if (msg.data.dir === 'fwd') {
-	    activateButton(nextBtn)
-	    break;
-	  }
-	  activateButton(prevBtn)
-	  break;
-    case "end":
-	  endDeck(msg.data.dir)
-	  break;
-    case "reset":
-	  startDeck()
-	  worker.postMessage({type: 'next'})
-	  break;
-    default:
-      throw `unknown message from worker: ${msg.data.type}`;
-  }
+		case "all":
+			populateList(msg.data.content);
+			mainEle.dataset.state = "listing";
+			document.body.dataset.state = "listing";
+			break;
+		case "start":
+			if (msg.data.dir === "fwd") {
+				activateButton(nextBtn);
+				break;
+			}
+			activateButton(prevBtn);
+			break;
+		case "end":
+			endDeck(msg.data.dir);
+			break;
+		case "reset":
+			startDeck();
+			worker.postMessage({ type: "next" });
+			break;
+		default:
+			throw `unknown message from worker: ${msg.data.type}`;
+	}
 }

@@ -1,14 +1,14 @@
 volumes:
-  modules:
+ modules:
 
 services:
-  dev:
-    image: kevinnls/node-unprivileged:alpine
-    user: node
-    working_dir: /app
-    command: yarn run dev --host
-    volumes:
-      - ./:/app
-      - modules:/app/node_modules
-    ports:
-      - "${PORT:-8080}:5173"
+ dev:
+  image: kevinnls/node-unprivileged:alpine
+  user: node
+  working_dir: /app
+  command: yarn run dev --host
+  volumes:
+   - ./:/app
+   - modules:/app/node_modules
+  ports:
+   - "${PORT:-8080}:5173"
