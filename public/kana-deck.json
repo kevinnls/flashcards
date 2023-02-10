@@ -185,190 +185,182 @@
 	},
 	{
 		"term": "ア",
-		"defn": null
+		"defn": "a"
 	},
 	{
 		"term": "イ",
-		"defn": null
+		"defn": "i"
 	},
 	{
 		"term": "ウ",
-		"defn": null
+		"defn": "u"
 	},
 	{
 		"term": "エ",
-		"defn": null
+		"defn": "e"
 	},
 	{
 		"term": "オ",
-		"defn": null
+		"defn": "o"
 	},
 	{
 		"term": "カ",
-		"defn": null
+		"defn": "ka"
 	},
 	{
 		"term": "キ",
-		"defn": null
+		"defn": "ki"
 	},
 	{
 		"term": "ク",
-		"defn": null
+		"defn": "ku"
 	},
 	{
 		"term": "ケ",
-		"defn": null
+		"defn": "ke"
 	},
 	{
 		"term": "コ",
-		"defn": null
+		"defn": "ko"
 	},
 	{
 		"term": "サ",
-		"defn": null
+		"defn": "sa"
 	},
 	{
 		"term": "シ",
-		"defn": null
+		"defn": "shi"
 	},
 	{
 		"term": "ス",
-		"defn": null
+		"defn": "su"
 	},
 	{
 		"term": "セ",
-		"defn": null
+		"defn": "se"
 	},
 	{
 		"term": "ソ",
-		"defn": null
+		"defn": "so"
 	},
 	{
 		"term": "タ",
-		"defn": null
+		"defn": "ta"
 	},
 	{
 		"term": "チ",
-		"defn": null
+		"defn": "chi"
 	},
 	{
 		"term": "ツ",
-		"defn": null
+		"defn": "tsu"
 	},
 	{
 		"term": "テ",
-		"defn": null
+		"defn": "te"
 	},
 	{
 		"term": "ト",
-		"defn": null
+		"defn": "to"
 	},
 	{
 		"term": "ナ",
-		"defn": null
+		"defn": "na"
 	},
 	{
 		"term": "ニ",
-		"defn": null
+		"defn": "ni"
 	},
 	{
 		"term": "ヌ",
-		"defn": null
+		"defn": "nu"
 	},
 	{
 		"term": "ネ",
-		"defn": null
+		"defn": "ne"
 	},
 	{
 		"term": "ノ",
-		"defn": null
+		"defn": "no"
 	},
 	{
 		"term": "ハ",
-		"defn": null
+		"defn": "ha"
 	},
 	{
 		"term": "ヒ",
-		"defn": null
+		"defn": "hi"
 	},
 	{
 		"term": "フ",
-		"defn": null
+		"defn": "hu"
 	},
 	{
 		"term": "ヘ",
-		"defn": null
+		"defn": "he"
 	},
 	{
 		"term": "ホ",
-		"defn": null
+		"defn": "ho"
 	},
 	{
 		"term": "マ",
-		"defn": null
+		"defn": "ma"
 	},
 	{
 		"term": "ミ",
-		"defn": null
+		"defn": "mi"
 	},
 	{
 		"term": "ム",
-		"defn": null
+		"defn": "mu"
 	},
 	{
 		"term": "メ",
-		"defn": null
+		"defn": "me"
 	},
 	{
 		"term": "モ",
-		"defn": null
+		"defn": "mo"
 	},
 	{
 		"term": "ヤ",
-		"defn": null
+		"defn": "ya"
 	},
 	{
 		"term": "ユ",
-		"defn": null
+		"defn": "yu"
 	},
 	{
 		"term": "ヨ",
-		"defn": null
+		"defn": "yo"
 	},
 	{
 		"term": "ラ",
-		"defn": null
+		"defn": "ra"
 	},
 	{
 		"term": "リ",
-		"defn": null
+		"defn": "ri"
 	},
 	{
 		"term": "ル",
-		"defn": null
+		"defn": "ru"
 	},
 	{
 		"term": "レ",
-		"defn": null
+		"defn": "re"
 	},
 	{
 		"term": "ロ",
-		"defn": null
+		"defn": "ro"
 	},
 	{
 		"term": "ワ",
-		"defn": null
-	},
-	{
-		"term": "ヰ",
-		"defn": null
-	},
-	{
-		"term": "ヱ",
-		"defn": null
+		"defn": "wa"
 	},
 	{
 		"term": "ヲ",
-		"defn": null
+		"defn": "wo"
 	}
 ]
