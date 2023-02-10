@@ -9,7 +9,7 @@
 	},
 	{
 		"term": "う",
-		"defn": "ɯ"
+		"defn": "u"
 	},
 	{
 		"term": "え",
@@ -21,171 +21,167 @@
 	},
 	{
 		"term": "か",
-		"defn": ""
+		"defn": "ka"
 	},
 	{
 		"term": "き",
-		"defn": ""
+		"defn": "ki"
 	},
 	{
 		"term": "く",
-		"defn": ""
+		"defn": "ku"
 	},
 	{
 		"term": "け",
-		"defn": ""
+		"defn": "ke"
 	},
 	{
 		"term": "こ",
-		"defn": ""
+		"defn": "ko"
 	},
 	{
 		"term": "さ",
-		"defn": null
+		"defn": "sa"
 	},
 	{
 		"term": "し",
-		"defn": null
+		"defn": "shi"
 	},
 	{
 		"term": "す",
-		"defn": null
+		"defn": "su"
 	},
 	{
 		"term": "せ",
-		"defn": null
+		"defn": "se"
 	},
 	{
 		"term": "そ",
-		"defn": null
+		"defn": "so"
 	},
 	{
 		"term": "た",
-		"defn": null
+		"defn": "ta"
 	},
 	{
 		"term": "ち",
-		"defn": null
+		"defn": "chi"
 	},
 	{
 		"term": "つ",
-		"defn": null
+		"defn": "tsu"
 	},
 	{
 		"term": "て",
-		"defn": null
+		"defn": "te"
 	},
 	{
 		"term": "と",
-		"defn": null
-	},
-	{
-		"term": "は",
-		"defn": null
-	},
-	{
-		"term": "ひ",
-		"defn": null
-	},
-	{
-		"term": "ふ",
-		"defn": null
-	},
-	{
-		"term": "へ",
-		"defn": null
-	},
-	{
-		"term": "ほ",
-		"defn": null
-	},
-	{
-		"term": "ま",
-		"defn": null
-	},
-	{
-		"term": "み",
-		"defn": null
-	},
-	{
-		"term": "む",
-		"defn": null
-	},
-	{
-		"term": "め",
-		"defn": null
-	},
-	{
-		"term": "も",
-		"defn": null
-	},
-	{
-		"term": "や",
-		"defn": null
-	},
-	{
-		"term": "ゆ",
-		"defn": null
-	},
-	{
-		"term": "よ",
-		"defn": null
-	},
-	{
-		"term": "ら",
-		"defn": null
-	},
-	{
-		"term": "り",
-		"defn": null
-	},
-	{
-		"term": "る",
-		"defn": null
-	},
-	{
-		"term": "れ",
-		"defn": null
-	},
-	{
-		"term": "ろ",
-		"defn": null
-	},
-	{
-		"term": "わ",
-		"defn": null
-	},
-	{
-		"term": "ゐ",
-		"defn": null
-	},
-	{
-		"term": "を",
-		"defn": null
-	},
-	{
-		"term": "ん",
-		"defn": null
+		"defn": "to"
 	},
 	{
 		"term": "な",
-		"defn": null
+		"defn": "na"
 	},
 	{
 		"term": "に",
-		"defn": null
+		"defn": "ni"
 	},
 	{
 		"term": "ぬ",
-		"defn": null
+		"defn": "nu"
 	},
 	{
 		"term": "ね",
-		"defn": null
+		"defn": "ne"
 	},
 	{
 		"term": "の",
-		"defn": null
+		"defn": "no"
+	},
+	{
+		"term": "は",
+		"defn": "ha"
+	},
+	{
+		"term": "ひ",
+		"defn": "hi"
+	},
+	{
+		"term": "ふ",
+		"defn": "hu"
+	},
+	{
+		"term": "へ",
+		"defn": "he"
+	},
+	{
+		"term": "ほ",
+		"defn": "ho"
+	},
+	{
+		"term": "ま",
+		"defn": "ma"
+	},
+	{
+		"term": "み",
+		"defn": "mi"
+	},
+	{
+		"term": "む",
+		"defn": "mu"
+	},
+	{
+		"term": "め",
+		"defn": "me"
+	},
+	{
+		"term": "も",
+		"defn": "mo"
+	},
+	{
+		"term": "や",
+		"defn": "ya"
+	},
+	{
+		"term": "ゆ",
+		"defn": "yu"
+	},
+	{
+		"term": "よ",
+		"defn": "yo"
+	},
+	{
+		"term": "ら",
+		"defn": "ra"
+	},
+	{
+		"term": "り",
+		"defn": "ri"
+	},
+	{
+		"term": "る",
+		"defn": "ru"
+	},
+	{
+		"term": "れ",
+		"defn": "re"
+	},
+	{
+		"term": "ろ",
+		"defn": "ro"
+	},
+	{
+		"term": "わ",
+		"defn": "wa"
+	},
+	{
+		"term": "を",
+		"defn": "wo"
+	},
+	{
+		"term": "ん",
+		"defn": "n"
 	},
 	{
 		"term": "ア",
