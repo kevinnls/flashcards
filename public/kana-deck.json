@@ -1,0 +1,378 @@
+[
+	{
+		"term": "あ",
+		"defn": "a"
+	},
+	{
+		"term": "い",
+		"defn": "i"
+	},
+	{
+		"term": "う",
+		"defn": "ɯ"
+	},
+	{
+		"term": "え",
+		"defn": "e"
+	},
+	{
+		"term": "お",
+		"defn": "o"
+	},
+	{
+		"term": "か",
+		"defn": ""
+	},
+	{
+		"term": "き",
+		"defn": ""
+	},
+	{
+		"term": "く",
+		"defn": ""
+	},
+	{
+		"term": "け",
+		"defn": ""
+	},
+	{
+		"term": "こ",
+		"defn": ""
+	},
+	{
+		"term": "さ",
+		"defn": null
+	},
+	{
+		"term": "し",
+		"defn": null
+	},
+	{
+		"term": "す",
+		"defn": null
+	},
+	{
+		"term": "せ",
+		"defn": null
+	},
+	{
+		"term": "そ",
+		"defn": null
+	},
+	{
+		"term": "た",
+		"defn": null
+	},
+	{
+		"term": "ち",
+		"defn": null
+	},
+	{
+		"term": "つ",
+		"defn": null
+	},
+	{
+		"term": "て",
+		"defn": null
+	},
+	{
+		"term": "と",
+		"defn": null
+	},
+	{
+		"term": "は",
+		"defn": null
+	},
+	{
+		"term": "ひ",
+		"defn": null
+	},
+	{
+		"term": "ふ",
+		"defn": null
+	},
+	{
+		"term": "へ",
+		"defn": null
+	},
+	{
+		"term": "ほ",
+		"defn": null
+	},
+	{
+		"term": "ま",
+		"defn": null
+	},
+	{
+		"term": "み",
+		"defn": null
+	},
+	{
+		"term": "む",
+		"defn": null
+	},
+	{
+		"term": "め",
+		"defn": null
+	},
+	{
+		"term": "も",
+		"defn": null
+	},
+	{
+		"term": "や",
+		"defn": null
+	},
+	{
+		"term": "ゆ",
+		"defn": null
+	},
+	{
+		"term": "よ",
+		"defn": null
+	},
+	{
+		"term": "ら",
+		"defn": null
+	},
+	{
+		"term": "り",
+		"defn": null
+	},
+	{
+		"term": "る",
+		"defn": null
+	},
+	{
+		"term": "れ",
+		"defn": null
+	},
+	{
+		"term": "ろ",
+		"defn": null
+	},
+	{
+		"term": "わ",
+		"defn": null
+	},
+	{
+		"term": "ゐ",
+		"defn": null
+	},
+	{
+		"term": "を",
+		"defn": null
+	},
+	{
+		"term": "ん",
+		"defn": null
+	}
+	{
+		"term": "な",
+		"defn": null
+	},
+	{
+		"term": "に",
+		"defn": null
+	},
+	{
+		"term": "ぬ",
+		"defn": null
+	},
+	{
+		"term": "ね",
+		"defn": null
+	},
+	{
+		"term": "の",
+		"defn": null
+	},
+	{
+		"term": "ア",
+		"defn": null
+	},
+	{
+		"term": "イ",
+		"defn": null
+	},
+	{
+		"term": "ウ",
+		"defn": null
+	},
+	{
+		"term": "エ",
+		"defn": null
+	},
+	{
+		"term": "オ",
+		"defn": null
+	},
+	{
+		"term": "カ",
+		"defn": null
+	},
+	{
+		"term": "キ",
+		"defn": null
+	},
+	{
+		"term": "ク",
+		"defn": null
+	},
+	{
+		"term": "ケ",
+		"defn": null
+	},
+	{
+		"term": "コ",
+		"defn": null
+	},
+	{
+		"term": "サ",
+		"defn": null
+	},
+	{
+		"term": "シ",
+		"defn": null
+	},
+	{
+		"term": "ス",
+		"defn": null
+	},
+	{
+		"term": "セ",
+		"defn": null
+	},
+	{
+		"term": "ソ",
+		"defn": null
+	},
+	{
+		"term": "タ",
+		"defn": null
+	},
+	{
+		"term": "チ",
+		"defn": null
+	},
+	{
+		"term": "ツ",
+		"defn": null
+	},
+	{
+		"term": "テ",
+		"defn": null
+	},
+	{
+		"term": "ト",
+		"defn": null
+	},
+	{
+		"term": "ナ",
+		"defn": null
+	},
+	{
+		"term": "ニ",
+		"defn": null
+	},
+	{
+		"term": "ヌ",
+		"defn": null
+	},
+	{
+		"term": "ネ",
+		"defn": null
+	},
+	{
+		"term": "ノ",
+		"defn": null
+	},
+	{
+		"term": "ハ",
+		"defn": null
+	},
+	{
+		"term": "ヒ",
+		"defn": null
+	},
+	{
+		"term": "フ",
+		"defn": null
+	},
+	{
+		"term": "ヘ",
+		"defn": null
+	},
+	{
+		"term": "ホ",
+		"defn": null
+	},
+	{
+		"term": "マ",
+		"defn": null
+	},
+	{
+		"term": "ミ",
+		"defn": null
+	},
+	{
+		"term": "ム",
+		"defn": null
+	},
+	{
+		"term": "メ",
+		"defn": null
+	},
+	{
+		"term": "モ",
+		"defn": null
+	},
+	{
+		"term": "ヤ",
+		"defn": null
+	},
+	{
+		"term": "ユ",
+		"defn": null
+	},
+	{
+		"term": "ヨ",
+		"defn": null
+	},
+	{
+		"term": "ラ",
+		"defn": null
+	},
+	{
+		"term": "リ",
+		"defn": null
+	},
+	{
+		"term": "ル",
+		"defn": null
+	},
+	{
+		"term": "レ",
+		"defn": null
+	},
+	{
+		"term": "ロ",
+		"defn": null
+	},
+	{
+		"term": "ワ",
+		"defn": null
+	},
+	{
+		"term": "ヰ",
+		"defn": null
+	},
+	{
+		"term": "ヱ",
+		"defn": null
+	},
+	{
+		"term": "ヲ",
+		"defn": null
+	}
+]
