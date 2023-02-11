@@ -5,8 +5,10 @@
 @layer base {
 
 	header, footer { @apply text-center; }
+	header { @apply text-2xl text-lime-400 uppercase; }
+	footer { @apply text-sm text-neutral-500; }
 	body {
-		@apply min-h-screen flex grid grid-rows-[min-content_auto_min-content];
+		@apply min-h-screen p-2 gap-2 flex grid grid-rows-[min-content_auto_min-content];
 		@apply bg-neutral-200 text-zinc-900;
 	}
 
