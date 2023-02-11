@@ -2,3 +2,26 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+
+	header, footer { @apply text-center; }
+	body {
+		@apply min-h-screen flex grid grid-rows-[min-content_auto_min-content];
+		@apply bg-neutral-200 text-zinc-900;
+	}
+
+	@media(prefers-color-scheme:dark){
+		body {
+			@apply bg-zinc-900 text-neutral-200;
+		}
+	}
+
+	main {
+		@apply w-11/12 mx-auto;
+	}
+	@media screen(md){
+		main {
+			@apply w-2/3;
+		}
+	}
+}
