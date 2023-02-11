@@ -11,7 +11,17 @@
 			Flashcards
 		</header>
 		<main>
-			hi
+			<form name="prestart" action="/learn" class="mx-auto w-max">
+				<label for="deck" class="sr-only">Deck</label>
+				<select name="deck" class="rounded-md p-2">
+					<option selected disabled>Pick a deck</option>
+					<option value="english-ipa.min.json">Phonemes of English IPA</option>
+					<option value="kana.json">Kana of Japanese</option>
+					<option value="hira.json">Hiragana of Japanese</option>
+					<option value="kata.json">Katakana of Japanese</option>
+				</select>
+				<input type="submit" class="rounded-md p-2 bg-lime-200 text-neutral-500 cursor-pointer">
+			</form>
 		</main>
 		<footer>
 			&copy; Kevin Samuel <a href="https://kevinnlsamuel.com">kevinnlsamuel.com</a>

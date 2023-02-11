@@ -4,6 +4,7 @@
 
 @layer base {
 
+	:root { color-scheme: light dark; accent-color: theme('colors.lime.400');}
 	header, footer { @apply text-center; }
 	header { @apply text-2xl text-lime-400 uppercase; }
 	footer { @apply text-sm text-neutral-500; }
