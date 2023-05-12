@@ -1,6 +1,7 @@
 //import { parse } from 'yaml';
 import { load, next, prev } from "./DeckFunctions.js";
 
+let deckfile;
 let originalDeck = [];
 let completedCardList = [];
 let remainingCardList = [];
@@ -51,7 +52,8 @@ onmessage = async (msg) => {
 			break;
 		case "load":
 			if (!msg.data.deckUrl) throw "deckUrl not provided for loading";
-			originalDeck = await load(msg.data.deckUrl);
+			deckfile = await load(msg.data.deckUrl);
+			originalDeck = deckfile.deck
 			remainingCardList = structuredClone(originalDeck);
 			postMessage({ type: "loaded" });
 			break;

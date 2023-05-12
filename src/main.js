@@ -5,7 +5,7 @@ const worker = new Worker(new URL("./worker.js", import.meta.url), {
 worker.onerror = console.error;
 worker.onmessage = handleWorkerMessage;
 worker.postMessage({ type: "ping" });
-worker.postMessage({ type: "load", deckUrl: "../deck.fr.min.json" });
+worker.postMessage({ type: "load", deckUrl: "../ta-deck.json" });
 
 const mainEle = document.getElementById("main");
 const startBtn = document.getElementById("action-start");
