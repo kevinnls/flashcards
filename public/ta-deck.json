@@ -1,0 +1,78 @@
+{
+	"meta": {
+		"name": "Tamil Script",
+		"subdecks": ["vowels","consonants","க் ச் ட் த் ப் ற்", "consonant+vowel"]
+	},
+	"deck": [
+		{
+			"term": "அ",
+			"defn": "a",
+			"subdecks": ["vowels"]
+		},
+		{
+			"term": "ஆ",
+			"defn": "aa",
+			"subdecks": ["vowels"]
+		},
+		{
+			"term": "க்",
+			"defn": "k/g",
+			"subdecks": ["consonants", "க் ச் ட் த் ப் ற் "]
+		},
+		{
+			"term": "ச்",
+			"defn": "s/ch",
+			"subdecks": ["consonants", "க் ச் ட் த் ப் ற் "]
+		},
+		{
+			"term": "ட்",
+			"defn": "t/d",
+			"subdecks": ["consonants", "க் ச் ட் த் ப் ற் "]
+		},
+		{
+			"term": "த்",
+			"defn": "th/dh",
+			"subdecks": ["consonants", "க் ச் ட் த் ப் ற் "]
+		},
+		{
+			"term": "ப்",
+			"defn": "p/b",
+			"subdecks": ["consonants", "க் ச் ட் த் ப் ற் "]
+		},
+		{
+			"term": "ற்",
+			"defn": "rr",
+			"subdecks": ["consonants", "க் ச் ட் த் ப் ற் "]
+		},
+		{
+			"term": "க",
+			"defn": "ka/ga, க்+அ",
+			"subdecks": ["consonant+vowel", "க் ச் ட் த் ப் ற் "]
+		},
+		{
+			"term": "ச்",
+			"defn": "sa/cha, ச்+அ",
+			"subdecks": ["consonant+vowel", "க் ச் ட் த் ப் ற் "]
+		},
+		{
+			"term": "ட்",
+			"defn": "ta/da, ட்+அ",
+			"subdecks": ["consonant+vowel", "க் ச் ட் த் ப் ற் "]
+		},
+		{
+			"term": "த்",
+			"defn": "tha/dha, த்+அ",
+			"subdecks": ["consonant+vowel", "க் ச் ட் த் ப் ற் "]
+		},
+		{
+			"term": "ப்",
+			"defn": "pa/ba, ப்+அ",
+			"subdecks": ["consonant+vowel", "க் ச் ட் த் ப் ற் "]
+		},
+		{
+			"term": "ற்",
+			"defn": "rra, ற்+அ",
+			"subdecks": ["consonant+vowel", "க் ச் ட் த் ப் ற் "]
+		}
+	]
+}
